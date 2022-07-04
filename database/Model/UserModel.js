@@ -9,6 +9,7 @@ UserSchema.methods.setpass = function(pass) {
 }
 
 UserSchema.methods.validPass = (pass, user) => {
+    
     var hash = Crypt.pbkdf2Sync(pass, user.salt,1000,64,'sha512').toString('hex')
     return user.password == hash
 }
