@@ -5,7 +5,7 @@ const cors = require("cors")
 const Mahasiswa = require('./Router/Mahasiswa.js')
 const User = require('./Router/User.js')
 const bodyparser = require('body-parser')
-const port = process.env.port || 4000
+const port = process.env.PORT || 4000
 console.log("Ada Request")
 app.use(express.json())
 app.use(cors({
