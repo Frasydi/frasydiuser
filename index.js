@@ -5,6 +5,7 @@ const cors = require("cors")
 const Mahasiswa = require('./Router/Mahasiswa.js')
 const User = require('./Router/User.js')
 const bodyparser = require('body-parser')
+const port = process.env.port || 4000
 console.log("Ada Request")
 app.use(express.json())
 app.use(cors({
@@ -20,6 +21,6 @@ app.get("/", (req,res) => {
 })
 
 
-app.listen(4000, () => {
-    console.log("Berjalan di localhost:4000")
+app.listen(port, (port) => {
+    console.log("Berjalan di port "+port)
 })
