@@ -4,11 +4,12 @@ const tokenauth = (req, res, next) => {
     const Header = req.headers['authorization']
     const token = Header && Header.split(' ')    
     console.log(token)
-    if(token[0] != "Sandi") {
+    if(token == null||token == "") {
         res.status(401).send("You are not auth")
         return
     }
-    if(token == null||token == "") {
+    
+    if(token[0] != "Sandi") {
         res.status(401).send("You are not auth")
         return
     }
