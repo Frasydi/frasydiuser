@@ -4,7 +4,6 @@ const {getAll, getNim} = require("../database/Methods/Mahasiswa.js")
 const tokenauth = require('../Util/Tokenauth.js')
 
 router.get("/all", tokenauth,(req,res) => {
-    console.log("lol")
     getAll().then(data => {
         res.status(data.status).json(data.msg)
     }).catch(error => {
