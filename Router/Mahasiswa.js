@@ -14,7 +14,7 @@ router.get("/all", tokenauth,(req,res) => {
     
 }) 
 
-router.get("/nim/:nim", (req,res) => {
+router.get("/nim/:nim", tokenauth,(req,res) => {
     const {nim} = req.params
     if(nim == null || nim.length < 12 || nim == "") {
         res.status(400).send("NIM is not valid")
