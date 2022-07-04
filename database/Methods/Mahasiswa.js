@@ -1,8 +1,9 @@
 const Mongoose = require('mongoose')
 const Mahasiswa = require("../Model/Mahasiswa.js")
+const url = process.env.DATABASE_URL
 const getAll = async() => {
     try {
-        await Mongoose.connect("mongodb://mahasiswa:if2020@if.unismuh.ac.id/web")
+        await Mongoose.connect(url)
         const result = await Mahasiswa.find({}).sort({nama : 1})
         return {
             status : 200,
@@ -15,7 +16,7 @@ const getAll = async() => {
 
 const getNim = async (nim) => {
     try {
-        await Mongoose.connect("mongodb://mahasiswa:if2020@if.unismuh.ac.id/web")
+        await Mongoose.connect(url)
         if(nim.length < 12) {
             return {
                 status : 400,

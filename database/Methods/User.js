@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 const User = require('../Model/UserModel.js')
-
+const url = process.env.DATABASE_URL2
 async function register(user,password) {
     try {
-        await mongoose.connect("mongodb://localhost:27017/user")
+        await mongoose.connect(url)
         if(await User.exists({username:user})) {
             return {
                 status : 400,
@@ -32,7 +32,7 @@ async function register(user,password) {
 }
 async function login(user, password) {
     try {
-        await mongoose.connect("mongodb://localhost:27017/user")
+        await mongoose.connect(url)
         const res = await User.findOne({username:user})
         if(res == null) {
             return {
